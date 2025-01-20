@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="crt0" translate="label" sortOrder="10">
+            <label>CRT0 Packages</label>
+        </tab>
+        <section id="lockpanel" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Lock Panel</label>
+            <tab>crt0</tab>
+            <resource>CRT0_LockPanel::lockpanel_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Module Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="password" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>API Password</label>
+                    <comment>Error message displayed after logging in with the panel locked.</comment>
+                    <depends>
+                        <field id="lockpanel/general/enable">1</field>
+                    </depends>
+                </field>
+                <field id="exception" translate="label" type="multiselect" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Excess of administrative users</label>
+                    <source_model>CRT0\LockPanel\Model\Config\Source\AdminUsers</source_model>
+                </field>
+                <field id="messageerror" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Message Error</label>
+                     <depends>
+                        <field id="lockpanel/general/enable">1</field>
+                    </depends>
+                    <comment>Error message displayed after logging in with the panel locked.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

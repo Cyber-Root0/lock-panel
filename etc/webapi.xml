@@ -1,0 +1,20 @@
+<routes>
+   <route url="/V1/lockpanel/status" method="GET">
+       <service class="CRT0\LockPanel\Api\LockPanelInterface" method="getStatus"/>
+       <resources>
+           <resource ref="anonymous"/>
+       </resources>
+   </route>
+   <route url="/V1/lockpanel/lock" method="POST">
+       <service class="CRT0\LockPanel\Api\LockPanelInterface" method="lockPanel"/>
+       <resources>
+           <resource ref="anonymous"/>
+       </resources>
+   </route>
+   <route url="/V1/lockpanel/unlock" method="POST">
+       <service class="CRT0\LockPanel\Api\LockPanelInterface" method="unlockPanel"/>
+       <resources>
+           <resource ref="anonymous"/>
+       </resources>
+   </route>
+</routes>
