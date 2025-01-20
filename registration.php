@@ -12,9 +12,9 @@
  * @since     2025
  */
 use Magento\Framework\Component\ComponentRegistrar;
-use CRT0\LockPanel\Helper\Strings;
+use CRT0\LockPanel\Helper\Config;
 ComponentRegistrar::register(
 	ComponentRegistrar::MODULE,
-	Strings::MODULE_ID,
+	Config::MODULE_ID,
 	__DIR__
 );

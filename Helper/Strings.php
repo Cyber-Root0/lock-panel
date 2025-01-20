@@ -11,15 +11,10 @@
  * @version   1.0.0
  * @since     2025
  */
+declare(strict_types=1);
 namespace CRT0\LockPanel\Helper;
 class Strings
 {
-    // Config
-    public const CONFIGID_EN = 'enable';
-    public const CONFIGID_EXC = 'exception';
-    public const CONFIGID_PWD = 'password';
-    public const MODULE_ID = 'CRT0_LockPanel';
-
     // Labels
     public const LABEL_ERRORID = 'messageerror';
     
@@ -30,10 +25,10 @@ class Strings
     public const ADMIN_LOCK_FLAG = 'crt0lockpanel';
 
     //RESPONSE
-    public const RESPONSE_LOCK_IS = 'Painel Administrativo bloqueado';
+    public const RESPONSE_LOCK_IS = 'Administrative Panel locked';
     public const RESPONSE_LOCK_ISNOT = 'Painel Administrativo não bloqueado';
-    public const RESPONSE_LOCK = 'Painel administrativo bloqueado com sucesso';
-    public const RESPONSE_NOTLOCK = 'Erro ao bloquear o painel administrativo';
-    public const RESPONSE_UNLOCK = 'Painel administrativo desbloqueado com sucesso';
-    public const RESPONSE_NOTUNLOCK = 'Erro ao desbloquear o painel administrativo';
+    public const RESPONSE_LOCK = 'Administrative Panel not locked';
+    public const RESPONSE_NOTLOCK = 'Error locking the admin panel';
+    public const RESPONSE_UNLOCK = 'Admin panel successfully unlocked';
+    public const RESPONSE_NOTUNLOCK = 'Error unlocking the admin panel';
 }

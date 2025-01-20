@@ -11,11 +11,14 @@
  * @version   1.0.0
  * @since     2025
  */
+declare(strict_types=1);
 namespace CRT0\LockPanel\Model;
+use Magento\Framework\Phrase;
 use Magento\Framework\Webapi\Rest\Request;
 use CRT0\LockPanel\Api\LockPanelInterface;
 use CRT0\LockPanel\Service\ManagerLock;
 use CRT0\LockPanel\Helper\Strings;
+use CRT0\LockPanel\Helper\Config;
 class LockPanel implements LockPanelInterface{    
     /**
      * __construct
@@ -37,9 +40,9 @@ class LockPanel implements LockPanelInterface{
     public function getStatus() : string{
         $pwd = $this->getPassword();
         if ($this->managerLock->isLock($pwd)){
-            return Strings::RESPONSE_LOCK_IS;
+            return $this->response(__(Strings::RESPONSE_LOCK_IS));
         }
-        return Strings::RESPONSE_LOCK_ISNOT;
+        return $this->response(__(Strings::RESPONSE_LOCK_ISNOT), 400);
     }    
     /**
      * lockPanel
@@ -49,9 +52,9 @@ class LockPanel implements LockPanelInterface{
     public function lockPanel(): string{
         $pwd = $this->getPassword();
         if ($this->managerLock->lock($pwd)){
-            return Strings::RESPONSE_LOCK;
+            return $this->response(__(Strings::RESPONSE_LOCK));
         }
-        return Strings::RESPONSE_NOTLOCK;
+        return $this->response(__(Strings::RESPONSE_NOTLOCK), 400);
     }    
     /**
      * unlockPanel
@@ -61,9 +64,24 @@ class LockPanel implements LockPanelInterface{
     public function unlockPanel() : string{
         $pwd = $this->getPassword();
         if ($this->managerLock->unlock($pwd)){
-            return Strings::RESPONSE_UNLOCK;
+            return $this->response(__(Strings::RESPONSE_UNLOCK));
         }
-        return Strings::RESPONSE_NOTUNLOCK;
+        return $this->response(__(Strings::RESPONSE_NOTUNLOCK), 400);
+    }    
+    /**
+     * response
+     *
+     * @param Phrase $message
+     * @param int $code
+     * @return string
+     */
+    private function response(Phrase $message, int $code = 200): string{
+        return json_encode(
+            [
+                'message' => $message->render(),
+                'code' => $code
+            ]
+        );
     }    
     /**
      * getPostParams
@@ -73,9 +91,14 @@ class LockPanel implements LockPanelInterface{
     private function getPostParams(): mixed
     {
 		return $this->request->getBodyParams();
-    }
+    }    
+    /**
+     * getPassword
+     *
+     * @return string
+     */
     private function getPassword(): string{
-        $pwd = $this->request->getParam(Strings::CONFIGID_PWD);
+        $pwd = $this->request->getParam(Config::CONFIGID_PWD);
         return $pwd ?? '';
     }
 }

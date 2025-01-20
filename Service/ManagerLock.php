@@ -11,6 +11,7 @@
  * @version   1.0.0
  * @since     2025
  */
+declare(strict_types=1);
 namespace CRT0\LockPanel\Service;
 use Magento\Framework\FlagManager;
 use CRT0\LockPanel\Helper\Config;

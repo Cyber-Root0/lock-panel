@@ -1,0 +1,23 @@
+{
+    "name": "crt0/lockpanel",
+    "description": "Magento2 module to block administrative panel via API",
+    "type": "module",
+    "license": "MIT",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "CRT0\\LockPanel\\": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "Bruno Alves",
+            "email": "boteistem@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.1"
+    }
+}

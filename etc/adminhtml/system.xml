@@ -17,7 +17,7 @@
                 </field>
                 <field id="password" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>API Password</label>
-                    <comment>Error message displayed after logging in with the panel locked.</comment>
+                    <comment>Enter API password.</comment>
                     <depends>
                         <field id="lockpanel/general/enable">1</field>
                     </depends>
@@ -25,9 +25,10 @@
                 <field id="exception" translate="label" type="multiselect" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Excess of administrative users</label>
                     <source_model>CRT0\LockPanel\Model\Config\Source\AdminUsers</source_model>
+                    <comment>Select administrative users who will not be blocked.</comment>
                 </field>
                 <field id="messageerror" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>Message Error</label>
+                    <label>Custom error message</label>
                      <depends>
                         <field id="lockpanel/general/enable">1</field>
                     </depends>

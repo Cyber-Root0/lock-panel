@@ -11,6 +11,7 @@
  * @version   1.0.0
  * @since     2025
  */
+declare(strict_types=1);
 namespace CRT0\LockPanel\Model\Config\Source;
 use Magento\Framework\Option\ArrayInterface;
 use Magento\User\Model\ResourceModel\User\CollectionFactory;

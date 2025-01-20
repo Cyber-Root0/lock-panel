@@ -11,6 +11,7 @@
  * @version   1.0.0
  * @since     2025
  */
+declare(strict_types=1);
 namespace CRT0\LockPanel\Helper;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Store\Model\ScopeInterface;
@@ -20,6 +21,11 @@ use CRT0\LockPanel\Helper\Strings;
  */
 class Config
 {   
+    // Config
+    public const CONFIGID_EN = 'enable';
+    public const CONFIGID_EXC = 'exception';
+    public const CONFIGID_PWD = 'password';
+    public const MODULE_ID = 'CRT0_LockPanel';
     /**
      * __construct
      *
@@ -45,7 +51,7 @@ class Config
      * @return string
      */
     public function getPassword(): string{
-        $pwd = $this->getConfig(Strings::CONFIGID_PWD);
+        $pwd = $this->getConfig(self::CONFIGID_PWD);
         return $pwd;
     }    
     /**
@@ -54,7 +60,7 @@ class Config
      * @return array
      */
     public function getUsersException(): array{
-        $userString = $this->getConfig(Strings::CONFIGID_EXC);
+        $userString = $this->getConfig(self::CONFIGID_EXC);
         return explode(',', $userString) ?? [];
     }    
     /**
@@ -71,7 +77,7 @@ class Config
      * @return bool
      */
     public function getModuleActive(): bool{
-        return $this->getConfig(Strings::CONFIGID_EN);
+        return (bool) $this->getConfig(self::CONFIGID_EN);
     }
     public function comparePwd(string $pwd) : bool{
         return $this->getPassword() === $pwd;

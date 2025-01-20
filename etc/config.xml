@@ -6,6 +6,7 @@
                 <general>
                     <enable>0</enable>
                     <exception>xxx</exception>
+                    <password>5824fa3b-0a41-4ea7-a286-3edf1eed741c</password>
                     <messageerror>Administrative panel blocked, please contact the support center.</messageerror>
                 </general>
             </lockpanel>
