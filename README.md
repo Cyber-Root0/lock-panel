@@ -109,6 +109,50 @@ CopyEdit
     
 
 * * *
+* * *
+
+### Description
+
+The **CRT0\\LockPanel** module was created to lock the Magento admin panel via REST API endpoints. It allows:
+
+* Lock/unlock access to the panel.
+* Check lock status.
+* Configure users who will not be affected by blocking.
+
+* * *
+
+### Module Installation
+
+1. **Copy the module files to the Magento directory:**
+    
+    
+    `app/code/CRT0/LockPanel`
+    
+2. **Activate the module:**
+    
+    
+    `bin/magento module:enable CRT0_LockPanel`
+    
+3. **Update the system:**
+    
+    `bin/magento setup:upgrade && bin/magento setup:di:compile`
+    
+    `bin/magento c:c`
+    
+4. **Ready!** The module is installed.
+    
+
+* * *
+
+### Settings
+
+1. In the Magento dashboard, go to `Stores > Configuration > CRT0 LockPanel`.
+2. Configure:
+    * **Activate the Module:** Enable administrative blocking.
+    * **API Password:** Set the password to access the endpoints.
+    * **Exempt Users:** Select users who will be able to access the panel even if blocked.
+
+* * *
 
 ### Testes
 
